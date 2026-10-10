@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Tech para Todos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span class="logo-text">Tech para Todos</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="cadastro.html" class="active">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h2>Faça Parte da Nossa Rede</h2>
+            <p>Cadastre-se como voluntário, doador ou interessado nos projetos da nossa ONG.</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="form-wrapper">
+            <!-- Imagem Ilustrativa de Engajamento e Voluntariado -->
+            <div class="form-hero-media">
+                <img src="img/modulo2_manutencao.jfif" alt="Alunos e voluntários em oficina prática de informática" loading="lazy">
+                <div class="media-caption">
+                    <p>Junte-se à nossa missão: conectamos conhecimento voluntário a jovens talentos de escolas públicas.</p>
+                </div>
+            </div>
+
+            <div id="form-feedback" class="feedback-alert" style="display: none;">
+                <strong>Sucesso!</strong> Seu cadastro foi registrado com sucesso. Em breve nossa equipe entrará em contato!
+            </div>
+
+            <form id="cadastro-form" action="#" method="POST" novalidate>
+                <!-- Seção 1: Perfil de Interesse (Agrupamento Lógico) -->
+                <fieldset class="form-group-box">
+                    <legend>1. Tipo de Participação (Perfil)</legend>
+                    <p class="fieldset-desc">Selecione como você gostaria de atuar junto à Tech para Todos:</p>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="perfil" value="voluntario" checked required>
+                            <span><strong>Voluntário:</strong> Quero ministrar aulas, monitorar oficinas ou apoiar mentorias.</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="perfil" value="doador" required>
+                            <span><strong>Doador / Apoiador:</strong> Quero doar equipamentos (PCs/peças) ou apoiar com recursos.</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="perfil" value="aluno" required>
+                            <span><strong>Candidato a Aluno:</strong> Tenho interesse em participar das turmas gratuitas de capacitação.</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="perfil" value="visitante" required>
+                            <span><strong>Visitante / Parceiro:</strong> Quero conhecer a organização e estabelecer parcerias institucionais.</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Seção 2: Dados Pessoais (Agrupamento Lógico e Inputs HTML5) -->
+                <fieldset class="form-group-box">
+                    <legend>2. Dados Pessoais</legend>
+                    <div class="form-grid">
+                        <div class="form-field full-width">
+                            <label for="nome">Nome Completo: *</label>
+                            <input id="nome" type="text" name="nome" required minlength="3" placeholder="Ex: Guilherme Moura">
+                            <span class="field-hint">Informe seu nome e sobrenome completos.</span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">E-mail: *</label>
+                            <input id="email" type="email" name="email" required placeholder="seuemail@exemplo.com">
+                            <span class="field-hint">Usaremos para confirmação de contato.</span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="cpf">CPF: *</label>
+                            <input id="cpf" type="text" name="cpf" required placeholder="000.000.000-00" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" autocomplete="off">
+                            <span class="field-hint">Formato com máscara: 000.000.000-00</span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="telefone">Telefone / WhatsApp: *</label>
+                            <input id="telefone" type="tel" name="telefone" required placeholder="(11) 90000-0000" maxlength="15" pattern="\(\d{2}\)\s\d{4,5}-\d{4}">
+                            <span class="field-hint">DDD + número (com máscara automática).</span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="nascimento">Data de Nascimento: *</label>
+                            <input id="nascimento" type="date" name="nascimento" required min="1930-01-01" max="2020-12-31">
+                            <span class="field-hint">Selecione no calendário ou digite.</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Seção 3: Endereço e Localização (Agrupamento Lógico) -->
+                <fieldset class="form-group-box">
+                    <legend>3. Endereço e Localização</legend>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="cep">CEP: *</label>
+                            <input id="cep" type="text" name="cep" required placeholder="00000-000" maxlength="9" pattern="\d{5}-\d{3}" autocomplete="off">
+                            <span class="field-hint">Formato: 00000-000</span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="estado">Estado (UF): *</label>
+                            <select name="estado" id="estado" required>
+                                <option value="">Selecione seu Estado</option>
+                                <option value="AC">Acre (AC)</option>
+                                <option value="AL">Alagoas (AL)</option>
+                                <option value="AP">Amapá (AP)</option>
+                                <option value="AM">Amazonas (AM)</option>
+                                <option value="BA">Bahia (BA)</option>
+                                <option value="CE">Ceará (CE)</option>
+                                <option value="DF">Distrito Federal (DF)</option>
+                                <option value="ES">Espírito Santo (ES)</option>
+                                <option value="GO">Goiás (GO)</option>
+                                <option value="MA">Maranhão (MA)</option>
+                                <option value="MT">Mato Grosso (MT)</option>
+                                <option value="MS">Mato Grosso do Sul (MS)</option>
+                                <option value="MG">Minas Gerais (MG)</option>
+                                <option value="PA">Pará (PA)</option>
+                                <option value="PB">Paraíba (PB)</option>
+                                <option value="PR">Paraná (PR)</option>
+                                <option value="PE">Pernambuco (PE)</option>
+                                <option value="PI">Piauí (PI)</option>
+                                <option value="RJ">Rio de Janeiro (RJ)</option>
+                                <option value="RN">Rio Grande do Norte (RN)</option>
+                                <option value="RS">Rio Grande do Sul (RS)</option>
+                                <option value="RO">Rondônia (RO)</option>
+                                <option value="RR">Roraima (RR)</option>
+                                <option value="SC">Santa Catarina (SC)</option>
+                                <option value="SP" selected>São Paulo (SP)</option>
+                                <option value="SE">Sergipe (SE)</option>
+                                <option value="TO">Tocantins (TO)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field full-width">
+                            <label for="rua">Logradouro (Rua, Avenida, Praça): *</label>
+                            <input id="rua" type="text" name="rua" required placeholder="Ex: Avenida Brasil ou Rua das Flores">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="numero_rua">Número: *</label>
+                            <input id="numero_rua" type="text" name="numero_rua" required placeholder="Ex: 123 ou S/N">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="bairro">Bairro: *</label>
+                            <input id="bairro" type="text" name="bairro" required placeholder="Ex: Centro">
+                        </div>
+
+                        <div class="form-field full-width">
+                            <label for="cidade">Cidade: *</label>
+                            <input id="cidade" type="text" name="cidade" required placeholder="Ex: Cotia">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Seção 4: Detalhes e Mensagem -->
+                <fieldset class="form-group-box">
+                    <legend>4. Mensagem / Informações Adicionais</legend>
+                    <div class="form-field full-width">
+                        <label for="mensagem">Disponibilidade, experiência prévia ou itens a doar:</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva brevemente suas habilidades técnicas, horários disponíveis para voluntariado ou detalhes de equipamentos para doação..."></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large">Finalizar Cadastro</button>
+                    <button type="reset" class="btn btn-secondary">Limpar Campos</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2026 Tech Para Todos - ONG de Inclusão Digital. Todos os direitos reservados.</p>
+            <p class="footer-sub">Projeto acadêmico de Desenvolvimento Front-End Para Web | Contato: contato@techparatodos.org.br</p>
+        </div>
+    </footer>
+
+    <!-- Scripts: Máscaras de Entrada e Validação Nativa -->
+    <script>
+        // Função de máscara de CPF (000.000.000-00)
+        const cpfInput = document.getElementById('cpf');
+        cpfInput.addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g, '');
+            if (v.length > 11) v = v.slice(0, 11);
+            if (v.length > 9) {
+                v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+            } else if (v.length > 6) {
+                v = v.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+            } else if (v.length > 3) {
+                v = v.replace(/(\d{3})(\d{1,3})/, '$1.$2');
+            }
+            e.target.value = v;
+        });
+
+        // Função de máscara de Telefone ((00) 00000-0000 ou (00) 0000-0000)
+        const telInput = document.getElementById('telefone');
+        telInput.addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g, '');
+            if (v.length > 11) v = v.slice(0, 11);
+            if (v.length > 10) {
+                v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+            } else if (v.length > 6) {
+                v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+            } else if (v.length > 2) {
+                v = v.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+            } else if (v.length > 0) {
+                v = v.replace(/^(\d*)$/, '($1');
+            }
+            e.target.value = v;
+        });
+
+        // Função de máscara de CEP (00000-000)
+        const cepInput = document.getElementById('cep');
+        cepInput.addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g, '');
+            if (v.length > 8) v = v.slice(0, 8);
+            if (v.length > 5) {
+                v = v.replace(/^(\d{5})(\d{1,3})$/, '$1-$2');
+            }
+            e.target.value = v;
+        });
+
+        // Envio do formulário com validação nativa
+        const form = document.getElementById('cadastro-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (form.checkValidity()) {
+                const feedback = document.getElementById('form-feedback');
+                feedback.style.display = 'block';
+                feedback.scrollIntoView({ behavior: 'smooth' });
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>
